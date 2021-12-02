@@ -1,7 +1,7 @@
 with open('input.txt') as file:
-	data = []
-	for l in list(file):
-		data.append(int(l))
+    data = []
+    for l in list(file):
+        data.append(int(l))
 
 sincrements = 0
 for i in range(0, len(data) - 1):
