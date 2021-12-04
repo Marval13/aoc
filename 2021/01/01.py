@@ -10,8 +10,10 @@ for i in range(0, len(data) - 1):
 
 print("Single increments", sincrements)
 
+
 def window(list, index, length):
     return sum([list[i] for i in range(index, index + length)])
+
 
 wincrements = 0
 for i in range(0, len(data) - 3):

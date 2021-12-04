@@ -13,7 +13,9 @@ for w in data:
         else:
             count[i][1] += 1
 
-gamma_list = ["0" if count[i][0] > count[i][1] else "1" for i in range(0, length)]
+gamma_list = [
+    "0" if count[i][0] > count[i][1] else "1" for i in range(0, length)
+]
 gamma = int("".join(gamma_list), 2)
 
 epsilon_list = ["1" if n == "0" else "0" for n in gamma_list]
@@ -23,6 +25,7 @@ print("Gamma", gamma)
 print("Epsilon", epsilon)
 print(gamma * epsilon)
 
+
 # Part Two
 def count_bit(l, i):
     c = [0, 0]
@@ -31,7 +34,7 @@ def count_bit(l, i):
             c[0] += 1
         else:
             c[1] += 1
-    
+
     return "0" if c[0] > c[1] else "1"
 
 
