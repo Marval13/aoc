@@ -59,33 +59,32 @@ def antilottery(boards: List[Board], draws: List[int]) -> Board:
             return lottery(boards, draws[i + 1:])
 
 
-with open("input.txt") as file:
-    draws: List[int] = []
-    boards: List[Board] = []
-    part = []
-    for i, l in enumerate(list(file)):
-        if i == 0:
-            draws = [int(n) for n in l.split(",")]
-        elif i == 1 or l == "\n":
-            pass
-        else:
-            part.append([int(n) for n in l.split()])
-            if len(part) == 5:
-                boards.append(Board(part))
-                part = []
+if __name__ == "__main__":
+    with open("input.txt") as file:
+        draws: List[int] = []
+        boards: List[Board] = []
+        part = []
+        for i, l in enumerate(list(file)):
+            if i == 0:
+                draws = [int(n) for n in l.split(",")]
+            elif i == 1 or l == "\n":
+                pass
+            else:
+                part.append([int(n) for n in l.split()])
+                if len(part) == 5:
+                    boards.append(Board(part))
+                    part = []
 
+    # Part One
+    winner = lottery(boards, draws)
 
-# Part One
-winner = lottery(boards, draws)
+    print("Winner:")
+    print(winner)
+    print(winner.score())
 
-print("Winner:")
-print(winner)
-print(winner.score())
+    # Part Two
+    loser = antilottery(boards, draws)
 
-
-# Part Two
-loser = antilottery(boards, draws)
-
-print("Loser:")
-print(loser)
-print(loser.score())
+    print("Loser:")
+    print(loser)
+    print(loser.score())
