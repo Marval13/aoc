@@ -61,7 +61,7 @@ class Graph:
 
 
 if __name__ == "__main__":
-    with open("test3.txt") as file:
+    with open("input.txt") as file:
         data: List[List[int]] = []
         for l in list(file):
             data.append(l.strip().split("-"))
